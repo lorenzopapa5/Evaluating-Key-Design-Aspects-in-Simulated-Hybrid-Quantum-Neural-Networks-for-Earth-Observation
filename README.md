@@ -18,6 +18,30 @@ These images include all necessary dependencies, including CUDA, Python 3.8, PyT
 
 Ensure you are using the correct Docker image depending on the model you are running.
 
+## Model Architectures
+
+![Model Architectures](models.png)
+
+## Results
+
+### Quantum Models Comparison over Qiskit and PennyLane Libraries
+
+| Models     | Qiskit $\overline{Acc}$ | Qiskit \textit{k*} | PennyLane $\overline{Acc}$ | PennyLane \textit{k*} |
+|------------|--------------------------|---------------------|----------------------------|------------------------|
+| HQNN4EOv1  | **91.93**                | 16.31              | 91.80                      | **15.53**              |
+| HQNN4EOv2  | 92.35                    | 16.36              | **92.51**                  | **16.11**              |
+| HQNN4EOv3  | **93.45**                | 15.89              | 93.15                      | **15.46**              |
+| HQViT      | **87.95**                | 16.25              | 87.77                      | **16.20**              |
+
+### Model's Comparison over $k$ Initialization Values
+
+| Models      | Traditional $\overline{Acc}$ | Traditional $\overline{\sigma}^2$ | Quantum $\overline{Acc}$ | Quantum $\overline{\sigma}^2$ |
+|-------------|------------------------------|------------------------------------|---------------------------|--------------------------------|
+| NN4EOv1 / HQNN4EOv1 | 90.87              | 3.85                               | **90.90**                | **3.25**                       |
+| NN4EOv2 / HQNN4EOv2 | **92.66**           | **4.25**                           | 92.56                    | 4.44                            |
+| NN4EOv3 / HQNN4EOv3 | 93.00               | 2.72                               | **93.47**                | **2.45**                       |
+| ViT / HQViT         | 88.37               | **3.47**                           | **88.78**                | 7.77                            |
+
 ## Paper
 
 For more details on the design aspects and methodologies used in this study, please refer to our [arXiv paper](https://arxiv.org/abs/2410.08677).
