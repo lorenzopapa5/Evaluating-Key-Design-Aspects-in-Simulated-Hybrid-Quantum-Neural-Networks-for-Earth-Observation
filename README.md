@@ -1,6 +1,6 @@
 # Evaluating Key Design Aspects in Simulated Hybrid Quantum Neural Networks for Earth Observation
 
-This repository contains code and resources to explore key design aspects of Hybrid Quantum Neural Networks (HQNN) applied to Earth Observation tasks. The work examines performance factors, comparing various model architectures using simulated quantum environments.
+This repository contains code and resources to explore key design aspects of Hybrid Quantum Neural Networks (HQNN) applied to Earth Observation (EO) tasks. The study examines how quantum-enhanced models perform in EO, focusing on three main areas: performance comparison of quantum libraries, stability under varying initialization values, and the advantages of hybrid quantum attention-based architectures. This work aims to provide foundational insights for future EO applications using quantum neural networks, especially in the context of emerging post-NISQ technologies.
 
 ## Getting Started
 
@@ -16,17 +16,27 @@ These images include all necessary dependencies, including CUDA, Python 3.8, PyT
 - **To run Qiskit models**, execute: `main_binary_qkit.py`
 - **To run PennyLane models**, execute: `main_binary_pl.py`
 
-Ensure you are using the correct Docker image depending on the model you are running.
+Ensure you are using the correct Docker image, which depends on the model you are running.
+To execute a main file within a Docker container, use the following pseudocode to set up paths and options as needed:
+
+```bash
+docker run \
+    -v /path/to/your/project:/work/project/ \          # Maps local project directory to Docker
+    -v /path/to/your/dataset:/work/dataset/ \          # Maps local dataset directory to Docker
+    -v /path/to/save/results:/work/save_models/ \      # Maps save directory for results
+    -u user_id:group_id --ipc host --gpus all your_docker_image /usr/bin/python3 /work/project/main_file.py \
+    --model_name <model_name> --c1 <class1> --c2 <class2>
+```
 
 ## Model Architectures
 
-![Model Architectures](models.png)
+<img src="models.png" alt="Model Architectures" width="500"/>
 
 ## Results
 
 ### Quantum Models Comparison over Qiskit and PennyLane Libraries
 
-| Models     | Qiskit $\overline{Acc}$ | Qiskit \textit{k*} | PennyLane $\overline{Acc}$ | PennyLane \textit{k*} |
+| Models     | Qiskit $\overline{Acc}$ | Qiskit $k^*$ | PennyLane $\overline{Acc}$ | PennyLane $k^*$ |
 |------------|--------------------------|---------------------|----------------------------|------------------------|
 | HQNN4EOv1  | **91.93**                | 16.31              | 91.80                      | **15.53**              |
 | HQNN4EOv2  | 92.35                    | 16.36              | **92.51**                  | **16.11**              |
