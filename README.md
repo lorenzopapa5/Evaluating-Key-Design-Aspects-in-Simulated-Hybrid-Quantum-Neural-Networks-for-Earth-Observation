@@ -43,7 +43,7 @@ docker run \
 | HQNN4EOv3  | **93.45**                | 15.89              | 93.15                      | **15.46**              |
 | HQViT      | **87.95**                | 16.25              | 87.77                      | **16.20**              |
 
-### Model's Comparison over $k$ Initialization Values
+### Model's Comparison over $N=10$ Initialization Values
 
 | Models      | Traditional $\overline{Acc}$ | Traditional $\overline{\sigma}^2$ | Quantum $\overline{Acc}$ | Quantum $\overline{\sigma}^2$ |
 |-------------|------------------------------|------------------------------------|---------------------------|--------------------------------|
